@@ -15,24 +15,27 @@ struct HeaderView: View {
     let backgroundColor: Color
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 0)
-                .foregroundColor(backgroundColor)
-                .rotationEffect(Angle(degrees: angle))
-            
-            VStack {
-                Text(title)
-                    .font(.system(size: 50))
-                    .foregroundColor(Color.white)
-                    .bold()
-                Text(subtitle)
-                    .font(.system(size: 30))
-                    .foregroundColor(Color.white)
+        GeometryReader { geometry in
+            ZStack {
+                RoundedRectangle(cornerRadius: 0)
+                    .foregroundColor(backgroundColor)
+                    .rotationEffect(Angle(degrees: angle))
+                
+                VStack {
+                    Text(title)
+                        .font(.system(size: 50))
+                        .foregroundColor(Color.white)
+                        .bold()
+                    Text(subtitle)
+                        .font(.system(size: 30))
+                        .foregroundColor(Color.white)
+                }
+                .padding(.top, 80)
             }
-            .padding(.top, 80)
+            .frame(width: geometry.size.width * 3, height: 350)
+            .offset(y: -150)
+            .position(x: geometry.size.width / 2, y: 175)
         }
-        .frame(width: UIScreen.main.bounds.width * 3, height: 350)
-        .offset(y: -150)
     }
 }
 

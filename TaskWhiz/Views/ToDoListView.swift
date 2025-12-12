@@ -21,7 +21,7 @@ struct ToDoListView: View {
     var body: some View {
         let sortedItems = viewModel.sortItems(items: items)
         
-        NavigationView() {
+        NavigationStack {
             VStack {
                 List(sortedItems) { item in
                     ToDoListItemView(item: item)

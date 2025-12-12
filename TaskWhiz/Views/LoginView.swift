@@ -5,7 +5,7 @@ struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 HeaderView(
                     title: "TaskWhiz",
