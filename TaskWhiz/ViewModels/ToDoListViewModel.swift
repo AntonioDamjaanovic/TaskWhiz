@@ -27,4 +27,8 @@ class ToDoListViewModel: ObservableObject {
             .document(id)
             .delete()
     }
+    
+    func sortItems(items: [ToDoListItem]) -> [ToDoListItem] {
+        return items.sorted(by: { $0.dueDate < $1.dueDate })
+    }
 }

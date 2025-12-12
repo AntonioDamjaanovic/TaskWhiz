@@ -19,9 +19,11 @@ struct ToDoListView: View {
     }
     
     var body: some View {
+        let sortedItems = viewModel.sortItems(items: items)
+        
         NavigationView() {
             VStack {
-                List(items) { item in
+                List(sortedItems) { item in
                     ToDoListItemView(item: item)
                         .swipeActions {
                             Button("Delete") {
