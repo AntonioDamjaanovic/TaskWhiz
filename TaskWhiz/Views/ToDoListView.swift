@@ -22,18 +22,17 @@ struct ToDoListView: View {
         let sortedItems = viewModel.sortItems(items: items)
         
         NavigationStack {
-            VStack {
-                List(sortedItems) { item in
-                    ToDoListItemView(item: item)
-                        .swipeActions {
-                            Button("Delete") {
-                                viewModel.delete(id: item.id)
-                            }
-                            .tint(.red)
+            List(sortedItems) { item in
+                ToDoListItemView(item: item)
+                    .swipeActions {
+                        Button("Delete") {
+                            viewModel.delete(id: item.id)
                         }
-                }
+                        .tint(.red)
+                    }
             }
             .navigationTitle("TaskWhiz")
+            .toolbarTitleDisplayMode(.inlineLarge)
             .toolbar {
                 Button {
                     viewModel.showingNewItemView = true
